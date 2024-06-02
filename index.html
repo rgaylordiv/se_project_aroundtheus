@@ -2,51 +2,55 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
         <link rel="stylesheet" href="pages/index.css">
         <link rel="icon" href="./favicon.ico">
         <title>Around The U.S.</title>
     </head>
     <body class="page">
-        <div class="content">
-            <section class="header">
-                <h1 class="header__title">
-                    Around
-                    <span class='span__item'> 
-                        The U.S.
-                    </span>
-                </h1>
-            </section>
-            <section  class='profile'>
-                <div class="profile__contents">
-                    <div class="profile__content">
-                        <img src="./images/Avatar.png" class="profile__image" alt="Profile Picture">
+        <div class="page__content">
+            <main class="content">
+                <section class="header">
+                    <h1 class="header__title">
+                        Around
+                        <span class='span__item'> 
+                            The U.S.
+                        </span>
+                    </h1>
+                </section>
+                <section  class='profile'>
+                    <div class="profile__contents">
+                        <div class="profile__content">
+                            <img src="./images/Avatar.png" class="profile__image" alt="Profile Picture">
+                        </div>
+                        <div class="profile__info">
+                            <h2 class="profile__name">
+                                Jacques Cousteau
+                            </h2>
+                            <p class="profile__bio">
+                                Explorer
+                            </p>
+                            <img src="./images/Edit Button.png" class="profile__edit_button" alt="Edit Button">
+                        </div>
+                        <div>
+                            <img src="./images/Add Button.png" class="add-button" alt="Add Button">
+                        </div>
                     </div>
-                    <div class="profile__info">
-                        <h2 class="profile__name">
-                            Jacques Cousteau
-                        </h2>
-                        <p class="profile__bio">
-                            Explorer
-                        </p>
-                        <img src="./images/Edit Button.png" class="profile__edit_button" alt="Edit Button">
+                </section>
+                <!--Make this section named gallery and the cards to be gallery__cards-->
+                <section class="card">
+                    <div class="cards">
+                        <!--Make this into a list to properly manage everything-->
+                        <img src="./images/Rectangle.png">
+                        <img src="./images/yosemite-valley.jpg" class="card__yosemite_picutre" alt="Picture of Yosemite">
+                        <div class="card__content">
+                            <h2 class="card__title">
+                                Yosemite Valley
+                            </h2>
+                        </div>
                     </div>
-                    <div>
-                        <img src="./images/Add Button.png" class="add-button" alt="Add Button">
-                    </div>
-                </div>
-            </section>
-            <section class="card">
-                <div class="cards">
-                    <img src="./images/Rectangle.png">
-                    <img src="./images/yosemite-valley.jpg" class="card__yosemite_picutre" alt="Picture of Yosemite">
-                    <div class="card__content">
-                        <h2 class="card__title">
-                            Yosemite Valley
-                        </h2>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </main>
         </div>
         <footer>
 

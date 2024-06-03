@@ -17,23 +17,28 @@
 
 ### Images
 
-- [!Add_Button](./images/Add%20Button.png);
-- [!Avatar](./images/Avatar.png);
-- [!Bald_Moutains](./images/bald-mountains.png);
-- [!Edit-Button](./images/Edit%20Button.png);
-- [!Header](./images/Header.svg);
-- [!Lago-Di-Braies](./images/lago-di-braies.png);
-- [!Lake-Louise](./images/lake-louise.png);
-- [!Latemar](./images/latemar.png);
-- [!Vanoise-National-Park](./images/vanoise-national-park.png);
-- [!Like-Button](./images/like-button.png);
-- [!Yosemite-Valley](./images/yosemite-valley.jpg);
+- [!Add_Button](./images/Add%20Button.png)
+- [!Avatar](./images/Avatar.png)
+- [!Bald_Moutains](./images/bald-mountains.png)
+- [!Edit-Button](./images/Edit%20Button.png)
+- [!Header](./images/Header.svg)
+- [!Lago-Di-Braies](./images/lago-di-braies.png)
+- [!Lake-Louise](./images/lake-louise.png)
+- [!Latemar](./images/latemar.png)
+- [!Vanoise-National-Park](./images/vanoise-national-park.png)
+- [!Like-Button](./images/like-button.png)
+- [!Yosemite-Valley](./images/yosemite-valley.jpg)
 
 #### Roger Gaylord GitHub
 
-- https://github.com/rgaylordiv/se_project_aroundtheus
+- [!Link_To_GitHub](https://github.com/rgaylordiv/se_project_aroundtheus)
 
-##### Link To Figma Project Below
+##### Google Drive Link To Video Overview
+
+- [!Link_To_Video](https://drive.google.com/file/d/1lV_mIwAhC8VrKVsTfUoMHkkpK9ESjoOT/view?usp=sharing)
+- Download for best quality!
+
+###### Link To Figma Project Below
 
 * [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
 

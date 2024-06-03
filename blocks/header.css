@@ -4,3 +4,18 @@
     border-bottom: 3px;
     border-color: #545454;
 }
+
+@media screen and (max-width: 320px) {
+    .header {
+        margin: 0;
+        padding-top: 28px;
+        padding-bottom: 0;
+    }
+
+    .header__logo {
+        width: 320px;
+        height: 56px;
+        background: url(../images/Header\ Mobile.svg);
+        object-fit: cover;
+    }
+}

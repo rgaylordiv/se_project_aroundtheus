@@ -28,10 +28,11 @@
 - [!Vanoise-National-Park](./images/vanoise-national-park.png)
 - [!Like-Button](./images/like-button.png)
 - [!Yosemite-Valley](./images/yosemite-valley.jpg)
+- [!Header_Mobile](./images/Header%20Mobile.svg)
 
-#### Roger Gaylord GitHub
+#### Roger Gaylord GitHub Pages
 
-- [!Link_To_GitHub](https://github.com/rgaylordiv/se_project_aroundtheus)
+- [!Link_To_GitHub_Pages](https://rgaylordiv.github.io/se_project_aroundtheus/)
 
 ##### Google Drive Link To Video Overview
 

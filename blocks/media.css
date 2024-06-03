@@ -1,0 +1,60 @@
+@media screen and (max-width: 320px) {
+    .header {
+        padding-left: 19px;
+        margin: 0;
+        padding-top: 28px;
+        padding-bottom: 0;
+    }
+
+    .header__logo {
+        height: 56px;
+    }
+
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile__info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .profile__name {
+        font-size: 22px;
+    }
+
+    .profile__image {
+        padding: 0;
+    }
+
+    .profile__bio {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 16.94px;
+        padding: 0;
+    }
+
+    .profile__edit-button {
+        max-width: 18px;
+        max-height: 18px;
+        margin-left: 10px;
+    }
+
+    .profile__add-button {
+        margin: 36px 0 0 0;
+        width: 100%;
+        border: none;
+    }
+
+    .footer {
+        padding: 48px 19px 36px;
+    }
+
+    .footer__copyright {
+        font-size: 14px;
+    }
+}

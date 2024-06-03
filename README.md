@@ -2,20 +2,38 @@
 
 ### Overview  
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
+# Hello! This project is simple looking at it from the outside in, but once you see the details of what is being asked, you realize just how daunting the task truely is. I was able to figure out aspects that I didn't before think I would be able to. It was nice having Figma to help find accurate sizing and such on the fly and I look forward to using it again. My main problems were: putting together the cards(more so the imaages and background to connect), the responsive design of a 320px screen from 1280px, and the media queries. I appreciate the challenge this served me and look forward to keep on learning no matter how many times I get humbled!
+
+## Project Features
+
+- Sematic HTML5
+- Flexbox
+- Grid Layout
+- Media Queries
+- Responsive Layout
+- Text/Screen Overflow
+- Modifiers
+- BEM organization
+
+### Images
+
+- [!Add_Button](./images/Add%20Button.png);
+- [!Avatar](./images/Avatar.png);
+- [!Bald_Moutains](./images/bald-mountains.png);
+- [!Edit-Button](./images/Edit%20Button.png);
+- [!Header](./images/Header.svg);
+- [!Lago-Di-Braies](./images/lago-di-braies.png);
+- [!Lake-Louise](./images/lake-louise.png);
+- [!Latemar](./images/latemar.png);
+- [!Vanoise-National-Park](./images/vanoise-national-park.png);
+- [!Like-Button](./images/like-button.png);
+- [!Yosemite-Valley](./images/yosemite-valley.jpg);
+
+#### Roger Gaylord GitHub
+
+- https://github.com/rgaylordiv/se_project_aroundtheus
+
+##### Link To Figma Project Below
+
 * [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+

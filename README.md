@@ -17,18 +17,17 @@
 
 ### Images
 
-- [!Add_Button](./images/Add%20Button.png)
+- [!Add_Button](./images/Add-Button-Crosshair.svg)
 - [!Avatar](./images/Avatar.png)
 - [!Bald_Moutains](./images/bald-mountains.png)
-- [!Edit-Button](./images/Edit%20Button.png)
-- [!Header](./images/Header.svg)
+- [!Edit-Button](./images/Edit-Button-Svg.svg)
+- [!Header](./images/Header-Logo.svg)
 - [!Lago-Di-Braies](./images/lago-di-braies.png)
 - [!Lake-Louise](./images/lake-louise.png)
 - [!Latemar](./images/latemar.png)
 - [!Vanoise-National-Park](./images/vanoise-national-park.png)
-- [!Like-Button](./images/like-button.png)
+- [!Like-Button](./images/like-button-svg.svg)
 - [!Yosemite-Valley](./images/yosemite-valley.jpg)
-- [!Header_Mobile](./images/Header%20Mobile.svg)
 
 #### Roger Gaylord GitHub Pages
 

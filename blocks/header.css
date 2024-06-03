@@ -1,8 +1,16 @@
 .header {
-    padding-top: 45px;
+    padding-top: 72px;
     padding-bottom: 34px;
-    border-bottom: 3px;
-    border-color: #545454;
+    border-style: solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color: rgba(84, 84, 84, .6);
+}
+
+.header__logo {
+    max-width: 880px;
+    max-height: 74px;
 }
 
 @media screen and (max-width: 320px) {
@@ -13,9 +21,9 @@
     }
 
     .header__logo {
-        width: 320px;
-        height: 56px;
-        background: url(../images/Header\ Mobile.svg);
-        object-fit: cover;
+        max-width: 126px;
+        height: 24px;
+        padding-left: 19px;
+        padding-bottom: 32px;
     }
 }

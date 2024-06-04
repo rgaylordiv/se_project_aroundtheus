@@ -90,9 +90,11 @@
     }
 
     .profile__info {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
+        display: grid;
+        grid-template-areas: 
+            "title button"
+            "description description";
+        grid-template-columns: minmax(auto, 196px) auto;
     }
 
     .profile__name {
@@ -124,6 +126,7 @@
     }
 }
 
+
 @media screen and (max-width: 579px) {
     .profile {
         flex-direction: column;
@@ -132,11 +135,11 @@
     }
 
     .profile__info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        white-space: nowrap;
+        display: grid;
+        grid-template-areas: 
+            "title button"
+            "description description";
+        grid-template-columns: minmax(auto, 196px) auto;
     }
 
     .profile__name {

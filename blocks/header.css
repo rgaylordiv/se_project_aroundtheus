@@ -1,16 +1,17 @@
 .header {
-    padding-top: 72px;
+    padding-top: 45px;
     padding-bottom: 34px;
     border-style: solid;
+    border-width: 1px;
     border-top: none;
     border-right: none;
     border-left: none;
-    border-color: rgba(84, 84, 84, .6);
+    border-color: rgba(84, 84, 84, .7);
 }
 
 .header__logo {
-    max-width: 880px;
-    max-height: 74px;
+    width: 173px;
+    height: 33px;
 }
 
 @media screen and (max-width: 320px) {
@@ -21,7 +22,22 @@
     }
 
     .header__logo {
-        max-width: 126px;
+        width: 126px;
+        height: 24px;
+        padding-left: 19px;
+        padding-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 579px) {
+    .header {
+        margin: 0;
+        padding-top: 28px;
+        padding-bottom: 0;
+    }
+
+    .header__logo {
+        width: 126px;
         height: 24px;
         padding-left: 19px;
         padding-bottom: 32px;

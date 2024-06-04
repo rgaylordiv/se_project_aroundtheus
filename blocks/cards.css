@@ -17,3 +17,9 @@
         padding-top: 36px;
     }
 }
+
+@media screen and (max-width: 579px) {
+    .cards {
+        padding-top: 36px;
+    }
+}

@@ -21,3 +21,13 @@
         font-size: 14px;
     }
 }
+
+@media screen and (max-width: 579px) {
+    .footer {
+        padding: 48px 19px 36px;
+    }
+
+    .footer__copyright {
+        font-size: 14px;
+    }
+}

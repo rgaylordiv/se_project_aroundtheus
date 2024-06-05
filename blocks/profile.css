@@ -2,6 +2,7 @@
     padding: 40px 0 0;
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .profile__info {
@@ -79,7 +80,7 @@
     opacity: 0.6;
 }
 
-@media screen and (max-width: 579px) {
+@media screen and (max-width: 767px){
     .profile {
         flex-direction: column;
         max-width: 282px;

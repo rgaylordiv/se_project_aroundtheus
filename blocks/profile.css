@@ -18,7 +18,7 @@
 .profile__name {
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 500;
-    font-size: 41px; /*Changed from the listed 42px because it overlowed and added ellipses*/
+    font-size: 41px; /*Changed from the listed 42px because it overflowed and added ellipses*/
     line-height: 48px;
     margin: 0;
     grid-area: title;
@@ -45,8 +45,6 @@
     width: 120px;
     height: 120px;
     padding-right: 30px;
-    padding-top: 22px;
-    padding-bottom: 21px;
 }
 
 .profile__edit-button {
@@ -80,52 +78,6 @@
 .profile__add-button:hover {
     opacity: 0.6;
 }
-
-@media screen and (max-width: 320px) {
-    .profile {
-        flex-direction: column;
-        max-width: 282px;
-        min-height: 286px;
-        white-space: nowrap;
-    }
-
-    .profile__info {
-        display: grid;
-        grid-template-areas: 
-            "title button"
-            "description description";
-        grid-template-columns: minmax(auto, 196px) auto;
-    }
-
-    .profile__name {
-        font-size: 22px;
-    }
-
-    .profile__image {
-        padding: 0 0 30px 0;
-    }
-
-    .profile__bio {
-        width: 100%;
-        text-align: center;
-        font-size: 14px;
-        line-height: 16.94px;
-        padding: 0;
-    }
-
-    .profile__edit-button {
-        max-width: 18px;
-        max-height: 18px;
-        margin-left: 10px;
-        white-space: nowrap;
-    }
-
-    .profile__add-button {
-        margin: 36px 0 0 0;
-        width: 100%;
-    }
-}
-
 
 @media screen and (max-width: 579px) {
     .profile {

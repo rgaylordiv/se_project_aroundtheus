@@ -20,7 +20,7 @@
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 500;
     font-size: 41px; /*Changed from the listed 42px because it overflowed and added ellipses*/
-    line-height: 48px;
+    line-height: 38px;
     margin: 0;
     grid-area: title;
     white-space: nowrap;

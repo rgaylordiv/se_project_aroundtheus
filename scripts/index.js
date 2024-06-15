@@ -30,7 +30,7 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 const editProfile = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector(".modal");
-const editClose = document.querySelector('.modal_close');
+const editClose = document.querySelector('.modal__close');
 const profileName = document.querySelector('.profile__name');
 const profileBio = document.querySelector('.profile__bio');
 const profileEditName = document.querySelector("#profile-name-input");
@@ -44,9 +44,6 @@ const cardList = document.querySelector(".cards__list");
 /* -------------------------------------------------------------------------- */
 function closePopup() {
     profileEditModal.classList.remove("modal_opened");
-}
-
-function getCardElement(data) {
 }
 
 /* -------------------------------------------------------------------------- */

@@ -33,12 +33,12 @@
         </div>
         <div class="modal">
             <div class="modal__container">
-                <button class="modal_close"></button>
-                <p class="modal__heading">Edit profile</p>
+                <button aria-label="Close" class="modal__close"></button>
+                <h3 class="modal__heading">Edit profile</h3>
                 <form class="modal__form">
-                    <input type="text" placeholder="Name" class="modal__form-input" name="name" id="profile-name-input">
-                    <input type="text" placeholder="Description" class="modal__form-input" name="bio" id="profile-bio-input">
-                    <button class="modal__button">Save</button>
+                    <input type="text" placeholder="Name" class="modal__form-input" name="name" id="profile-name-input" required>
+                    <input type="text" placeholder="Description" class="modal__form-input" name="bio" id="profile-bio-input" required>
+                    <button class="modal__button" type="submit">Save</button>
                 </form>
             </div>
         </div>
@@ -51,6 +51,6 @@
                 </div>
             </li>
         </template>
-        <script src="./scripts/index.js"></script>
+        <script src="./scripts/index.js" defer></script>
     </body>
 </html>

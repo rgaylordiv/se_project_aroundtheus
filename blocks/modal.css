@@ -9,11 +9,11 @@
     background-color: rgba(0, 0, 0, .5);
 }
 
-.modal__opened {
+.modal_opened {
     display: flex;
 }
 
-.modal__close {
+.modal_close {
     background-image: url(../images/Close\ Icon.svg);
     border: none;
     background-color: transparent;
@@ -26,7 +26,7 @@
     right: -45px;
 }
 
-.modal__close:hover {
+.modal_close:hover {
     opacity: 0.6;
 }
 
@@ -79,6 +79,10 @@
     height: 50px;
     align-self: center;
     margin-top: 18px;
+}
+
+.modal__button:hover {
+    opacity: 0.6;
 }
 
 

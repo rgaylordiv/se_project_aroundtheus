@@ -28,6 +28,8 @@
 
 .card__image {
     object-fit: cover;
+    object-position: 50% 50%;
+    height: 282px;
 }
 
 .card__button {

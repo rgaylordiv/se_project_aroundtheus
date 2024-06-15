@@ -20,7 +20,7 @@
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 500;
     font-size: 41px; /*Changed from the listed 42px because it overflowed and added ellipses*/
-    line-height: 38px;
+    /*line-height: 38px; made names that had any g or y cut off the tails of the letters */
     margin: 0;
     grid-area: title;
     white-space: nowrap;
@@ -97,6 +97,7 @@
 
     .profile__name {
         font-size: 22px;
+        text-align: center; /*added to keep centered with the smaller resolutions*/
     }
 
     .profile__image {

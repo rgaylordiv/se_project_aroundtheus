@@ -1,3 +1,4 @@
+
 .modal {
     position: fixed;
     top: 0;
@@ -5,12 +6,17 @@
     bottom: 0;
     right: 0;
     z-index: 999;
-    display: none;
+    visibility: hidden;
+    display: flex;
+    opacity: 0;
+    transition: visibility 0s linear 0.3s, opacity .3s ease;
     background-color: rgba(0, 0, 0, .5);
 }
 
 .modal_opened {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 .modal__close {
@@ -31,6 +37,24 @@
     opacity: 0.6;
 }
 
+.modal__close-image {
+    background-image: url(../images/Close\ Icon.svg);
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    cursor: pointer;
+}
+
+.modal__close-image:hover {
+    opacity: 0.6;
+}
+
 .modal__container {
     position: relative;
     padding: 36px;
@@ -38,6 +62,13 @@
     margin: auto;
     border-radius: 10px;
     width: 358px;
+}
+
+.modal__container-image {
+    position: relative;
+    padding: 36px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .modal__heading {
@@ -86,6 +117,19 @@
 
 .modal__button:hover {
     opacity: 0.6;
+}
+
+.modal__image {
+    max-width: 75vw;
+    max-height: 75vh;
+}
+
+.modal__description {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.52px;
+    color: #fff;
 }
 
 

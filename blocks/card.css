@@ -30,6 +30,11 @@
     object-fit: cover;
     object-position: 50% 50%;
     height: 282px;
+    opacity: .7;
+}
+
+.card__image:hover {
+    cursor: pointer;
 }
 
 .card__button {
@@ -42,5 +47,25 @@
 
 .card__button:hover {
     opacity: 50%;
+    cursor: pointer;
+}
+
+.card__button.active {
+    background-image: url(../images/like-button-clicked.svg);
+}
+
+.card__trash {
+    background: transparent url(../images/Trash.svg) center no-repeat;
+    width: 18px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    align-self: self-end;
+    padding-top: 18px;
+    padding-right: 15px;
+}
+
+.card__trash:hover {
+    opacity: .6;
     cursor: pointer;
 }

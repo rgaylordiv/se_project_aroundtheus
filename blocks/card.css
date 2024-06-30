@@ -61,8 +61,8 @@
     border: none;
     position: absolute;
     align-self: self-end;
-    padding-top: 18px;
-    padding-right: 15px;
+    margin-top: 18px;
+    margin-right: 15px;
 }
 
 .card__trash:hover {

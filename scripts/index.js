@@ -33,8 +33,6 @@ const profileEditFormElement = document.querySelector('#edit-form');
 const addFormElement = document.querySelector('#add-form');
 const formElement = document.querySelector('.modal__form');
 const formInput = formElement.querySelector('.modal__form-input');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
-const errorElement = document.querySelector('.modal__input-error');
 /* ^^ Form Elements ^^ */
 const editProfile = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector("#edit");
@@ -86,49 +84,6 @@ function renderCard(data, wrapper) {
     const cardElement = getCardElement(data);
     wrapper.prepend(cardElement);
 }
-
-const showInputError = (inputElement, errorMessage) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add('modal__input_type_error');
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('modal__input-error_active');
-};
-
-const hideInputError = (inputElement) => {
-    console.log(inputElement);
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('modal__input_type_error');
-    errorElement.classList.remove('modal__input-error_active');
-    errorElement.textContent = '';
-};
-
-const checkInputValidity = (inputElement) => {
-    if (!inputElement) {
-        return;
-    }
-
-    if(!inputElement.validity.valid) {
-        showInputError(inputElement, inputElement.validationMessage);
-    } else {
-        hideInputError(inputElement);
-    }
-};
-
-addCardTitle.addEventListener('input', function(evt){
-    checkInputValidity(evt.target);
-});
-
-addCardImage.addEventListener('input', function(evt) {
-    checkInputValidity(evt.target);
-});
-
-profileEditName.addEventListener('input', function(evt){
-    checkInputValidity(evt.target);
-});
-
-profileEditBio.addEventListener('input', function(evt){
-    checkInputValidity(evt.target);
-});
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
@@ -228,12 +183,18 @@ initialCards.forEach(function(data){
 
 /* ^^ User Card Input Data ^^ */
 
-formInput.addEventListener('input', function(evt) {
-    checkInputValidity(evt.target);
-})
+//formInput.addEventListener('input', function(evt) {
+   // checkInputValidity(evt.target);
+//})
 
 profileEditModal.addEventListener('click', function(evt) {
     if(evt.target == profileEditModal) {
+        closePopup(profileEditModal);
+    }
+});
+
+document.addEventListener('keydown', function(evt){
+    if(evt.key === 'Escape') {
         closePopup(profileEditModal);
     }
 });
@@ -244,4 +205,23 @@ cardAddModal.addEventListener('click', function(evt) {
     }
 });
 
-/* ^^ Close Modal When Clicking Overlay Functionality ^^ */
+document.addEventListener('keydown', function(evt){
+    if(evt.key === 'Escape') {
+        closePopup(cardAddModal);
+    }
+});
+
+modalImage.addEventListener('click', function(evt){
+    if(evt.target == modalImage) {
+        closePopup(modalImage);
+    }
+});
+
+document.addEventListener('keydown', function(evt){
+    if(evt.key === 'Escape') {
+        closePopup(modalImage);
+    }
+});
+
+
+/* ^^ Close Modal When Clicking Overlay/Escape Functionality ^^ */

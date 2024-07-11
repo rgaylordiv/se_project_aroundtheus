@@ -28,11 +28,12 @@ const initialCards = [
 /* -------------------------------------------------------------------------- */
 /*                                   Element                                  */
 /* -------------------------------------------------------------------------- */
-const modal = document.querySelector('.modal');
+const popups = document.querySelectorAll('.modal');
 const profileEditFormElement = document.querySelector('#edit-form');
 const addFormElement = document.querySelector('#add-form');
 const formElement = document.querySelector('.modal__form');
 const formInput = formElement.querySelector('.modal__form-input');
+const closeButtons = document.querySelector('.modal__close');
 /* ^^ Form Elements ^^ */
 const editProfile = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector("#edit");
@@ -155,10 +156,6 @@ editClose.addEventListener("click", function () {
 // Form Elements
 profileEditFormElement.addEventListener("submit", handleProfileEditSumbit);
 addFormElement.addEventListener("submit", handleProfileAddSubmit);
-formElement.addEventListener("submit", preventDefault);
-formInput.addEventListener("input", function(evt) {
-    console.log(evt.target);
-});
 // ^^
 
 addButton.addEventListener("click", function() {
@@ -182,12 +179,33 @@ initialCards.forEach(function(data){
 });
 
 /* ^^ User Card Input Data ^^ */
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if(evt.target.classList.contains('modal_opened')) {
+            closePopup(popup);
+        }
 
-//formInput.addEventListener('input', function(evt) {
-   // checkInputValidity(evt.target);
-//})
+        if(evt.target.classList.contains('modal__button')) {
+            closePopup(popup);
+        };
+    });
+});
 
-profileEditModal.addEventListener('click', function(evt) {
+document.addEventListener('keydown', (evt) => {
+    if(evt.key === 'Escape') {
+        closePopup(profileEditModal);
+        closePopup(cardAddModal);
+        closePopup(modalImage);
+    }
+
+    if(!evt.target.classList.contains('modal__opened')) {
+        document.removeEventListener('keydown', function() {
+
+        });
+    }
+});
+
+/*profileEditModal.addEventListener('click', function(evt) {
     if(evt.target == profileEditModal) {
         closePopup(profileEditModal);
     }
@@ -221,7 +239,7 @@ document.addEventListener('keydown', function(evt){
     if(evt.key === 'Escape') {
         closePopup(modalImage);
     }
-});
+});/*
 
 
 /* ^^ Close Modal When Clicking Overlay/Escape Functionality ^^ */

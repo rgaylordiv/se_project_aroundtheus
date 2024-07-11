@@ -36,10 +36,14 @@
                 <button aria-label="Close" class="modal__close" id="editClose"></button>
                 <h3 class="modal__heading">Edit profile</h3>
                 <form class="modal__form" id="edit-form" novalidate>
-                    <input type="text" placeholder="Name" class="modal__form-input" name="name" id="profile-name-input" required minlength="2" maxlength="40">
-                    <span class="modal__input-error" id="profile-name-input-error"></span>
-                    <input type="text" placeholder="Description" class="modal__form-input" name="bio" id="profile-bio-input" required minlength="2" maxlength="200">
-                    <span class="modal__input-error" id="profile-bio-input-error"></span>
+                    <label class="modal__form-group">
+                        <input type="text" placeholder="Name" class="modal__form-input" name="name" id="profile-name-input" required minlength="2" maxlength="40">
+                        <span class="modal__input-error" id="profile-name-input-error"></span>
+                    </label>
+                    <label class="modal__form-group">
+                        <input type="text" placeholder="Description" class="modal__form-input" name="bio" id="profile-bio-input" required minlength="2" maxlength="200">
+                        <span class="modal__input-error" id="profile-bio-input-error"></span>
+                    </label>
                     <button class="modal__button" type="submit">Save</button>
                 </form>
             </div>
@@ -49,10 +53,14 @@
                 <button aria-label="Close" class="modal__close" id="addClose"></button>
                 <h3 class="modal__heading">New Place</h3>
                 <form class="modal__form" id="add-form" novalidate>
-                    <input type="text" placeholder="Title" class="modal__form-input modal__input_type_title" name="title" id="post-title-input" required>
-                    <span class="modal__input-error" id="post-title-input-error"></span>
-                    <input type="url" placeholder="Image URL" class="modal__form-input modal__input_type_url" name="image" id="post-image-url-input" required>
-                    <span class="modal__input-error" id="post-image-url-input-error"></span>
+                    <label class="modal__form-group">
+                        <input type="text" placeholder="Title" class="modal__form-input modal__input_type_title" name="title" id="post-title-input" required>
+                        <span class="modal__input-error" id="post-title-input-error"></span>
+                    </label>
+                    <label class="modal__form-group">
+                        <input type="url" placeholder="Image URL" class="modal__form-input modal__input_type_url" name="image" id="post-image-url-input" required>
+                        <span class="modal__input-error" id="post-image-url-input-error"></span>
+                    </label>
                     <button class="modal__button" type="submit" id="new-post">Create</button>
                 </form>
             </div>

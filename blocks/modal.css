@@ -97,7 +97,7 @@
 
 
 .modal__form-input:nth-of-type(2n) {
-    padding-top: 30px;
+    margin-top: 30px;
 }
 
 .modal__input-error {
@@ -108,6 +108,7 @@
     font-weight: 400;
     font-size: 12px;
     transition: visibility 0s linear 0.3s, opacity .3s ease;
+    position: absolute;
 }
 
 .modal__input-error_active {
@@ -131,7 +132,7 @@
     width: 100%;
     height: 50px;
     align-self: center;
-    margin-top: 48px;
+    margin-top: 8px;
     cursor: pointer;
 }
 
@@ -142,6 +143,11 @@
 
 .modal__button:hover {
     opacity: 0.6;
+}
+
+.modal__form-group{
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .modal__image {

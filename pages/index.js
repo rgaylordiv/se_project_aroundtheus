@@ -95,8 +95,9 @@ function handleImageClick() {
 }
 
 function renderCard(data, wrapper) {
-    const card = new Card(data, cardData, handleImageClick);
-    wrapper.prepend(card.getView());
+    const card = new Card(data, '#card-template', handleImageClick).getView();
+    wrapper.prepend(getCardElement(data));
+    //wrapper.prepend(card.getView());
 }
 
 /* -------------------------------------------------------------------------- */
@@ -121,11 +122,7 @@ function handleProfileAddSubmit (evt) {
     cardImageInput.value = '';
 }
 
-function preventDefault (evt) {
-    evt.preventDefault();
-};
-
-/*function getCardElement(data) {
+function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImage = cardElement.querySelector(".card__image");
     const cardTitle = cardElement.querySelector(".card__title");
@@ -150,7 +147,7 @@ function preventDefault (evt) {
     });//
 
     return cardElement;
-};*/
+};
 
 function handleEscape(evt) {
     if (evt.key === "Escape") {

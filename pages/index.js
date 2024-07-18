@@ -70,7 +70,7 @@ const cardList = document.querySelector(".cards__list");
 /* ^^ Template & List ^^ */
 
 const modalImage = document.querySelector('#image');
-//const previewImage = modalImage.querySelector('.modal__image');
+const previewImage = modalImage.querySelector('.modal__image');
 //const imageClose = document.querySelector('#imageClose');
 const modalTitle = document.querySelector('.modal__description');
 
@@ -109,8 +109,8 @@ function getCardElement(cardData) {
 }
 
 function handleImageClick(link, name) {
-    modalImage.src = link;
-    modalImage.alt = name;
+    previewImage.src = link;
+    previewImage.alt = name;
     modalTitle.textContent = name;
     openPopup(modalImage);
 }

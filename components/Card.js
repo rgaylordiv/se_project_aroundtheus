@@ -1,3 +1,4 @@
+
 export default class Card {
     constructor(data, cardSelector, handleImageClick) {
         this._name = data.name;
@@ -15,22 +16,29 @@ export default class Card {
         return cardElement;
     }
 
+    _handleLikeClick (evt){
+        evt.target.classList.toggle('active');
+    }
+
+    _handleDeleteClick (evt) {
+        evt.target.closest('card').remove();
+    }
+
+    _handleImageClick(){
+        modalImage.src = this._link;
+        modalImage.alt = this._name;
+        modalTitle.textContent = this._name;
+       openPopup(modalImage);
+    }
+
     _setEventListeners() {
         this._element.querySelector('.card__button').addEventListener('click', () => this._handleLikeClick);
 
         this._element.querySelector('.card__trash').addEventListener('click', () => this._handleDeleteClick);
 
         this._element.querySelector(".card__image").addEventListener('click', () => {
-            this._handleImageClick(this._name, this._link);
+            this._handleImageClick(this._link, this._name);
         })
-    }
-
-    _handleLikeClick (){
-        this._likeButton.classList.toggle('active');
-    }
-
-    _handleDeleteClick () {
-        this._deleteButton.closest('.card').remove();
     }
 
     getView() {
@@ -39,7 +47,7 @@ export default class Card {
         
         this._likeButton = this._element.querySelector('.card__button');
         this._deleteButton = this._element.querySelector('.card__trash');
-        this._element.querySelector('.card__image').style.backgroundImage = `url(${this._link})`;
+        this._element.querySelector('.card__image').setAttribute('src', this._link)
         this._element.querySelector('.card__image').alt = this._name;
         this._element.querySelector(".card__title").textContent = this._name;
 

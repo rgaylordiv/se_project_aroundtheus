@@ -1,5 +1,6 @@
-import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+
 
 const initialCards = [
 {
@@ -62,14 +63,15 @@ const cardImageInput = addFormElement.querySelector('.modal__input_type_url');
 
 /* ^^ Add Form ^^ */
 
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+//const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 const cardList = document.querySelector(".cards__list");
-const cardData = document.querySelector('#card-template');
+//const cardData = document.querySelector('#card-template');
 
 /* ^^ Template & List ^^ */
 
 const modalImage = document.querySelector('#image');
-const imageClose = document.querySelector('#imageClose');
+//const previewImage = modalImage.querySelector('.modal__image');
+//const imageClose = document.querySelector('#imageClose');
 const modalTitle = document.querySelector('.modal__description');
 
 /* ^^ Image Display ^^ */
@@ -78,26 +80,39 @@ const modalTitle = document.querySelector('.modal__description');
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function displayImage(imageURL, name) {
-    const modalImage = document.querySelector('.modal__image');
-    const modalTitle = document.querySelector('.modal__description');
+//function displayImage(imageURL, name) {
+ //   const modalImage = document.querySelector('.modal__image');
+ //   const modalTitle = document.querySelector('.modal__description');
 
-    modalImage.src = imageURL;
-    modalImage.alt = name;
-    modalTitle.textContent = name;
-}
+  //  modalImage.src = imageURL;
+  //  modalImage.alt = name;
+  //  modalTitle.textContent = name;
+//}
 
-function handleImageClick() {
-    cardImage.addEventListener('click', function() {
-    openPopup(modalImage);
-    displayImage(data.link, data.name);
-});
-}
+/*const data = 
+{
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(data, '#card-template');
+card.getView();*/
 
 function renderCard(data, wrapper) {
-    const card = new Card(data, '#card-template', handleImageClick).getView();
-    wrapper.prepend(getCardElement(data));
-    //wrapper.prepend(card.getView());
+    const cardElement = getCardElement(data);
+    wrapper.prepend(cardElement);
+}
+
+function getCardElement(cardData) {
+    const card = new Card(cardData, '#card-template', handleImageClick);
+    return card.getView();
+}
+
+function handleImageClick(link, name) {
+    modalImage.src = link;
+    modalImage.alt = name;
+    modalTitle.textContent = name;
+    openPopup(modalImage);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -122,7 +137,7 @@ function handleProfileAddSubmit (evt) {
     cardImageInput.value = '';
 }
 
-function getCardElement(data) {
+/*function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImage = cardElement.querySelector(".card__image");
     const cardTitle = cardElement.querySelector(".card__title");
@@ -147,7 +162,7 @@ function getCardElement(data) {
     });//
 
     return cardElement;
-};
+};*/
 
 function handleEscape(evt) {
     if (evt.key === "Escape") {
@@ -226,5 +241,6 @@ const config = ({
 
   editFormValidator.enableValidation();
   addFormValidator.enableValidation();
+  
 
 

@@ -36,8 +36,9 @@ const initialCards = [
 const popups = document.querySelectorAll('.modal');
 const profileEditFormElement = document.querySelector('#edit-form');
 const addFormElement = document.querySelector('#add-form');
-const formInput = document.querySelector('.modal__form-input');
-const closeButtons = document.querySelector('.modal__close'); 
+//const formInput = document.querySelector('.modal__form-input');
+//const closeButtons = document.querySelector('.modal__close'); 
+//const submitButton = addFormElement.querySelector('.modal__button');
 
 /* ^^ Form Elements ^^ */
 
@@ -135,6 +136,7 @@ function handleProfileAddSubmit (evt) {
 
     cardTitleInput.value = '';
     cardImageInput.value = '';
+    addFormElement.reset();
 }
 
 /*function getCardElement(data) {
@@ -199,6 +201,7 @@ addFormElement.addEventListener("submit", handleProfileAddSubmit);
 
 addButton.addEventListener("click", function() {
     openPopup(cardAddModal);
+    addFormValidator.toggleButtonState();
 });
 
 /* ^^ Add Form Events ^^ */
@@ -241,6 +244,10 @@ const config = ({
 
   editFormValidator.enableValidation();
   addFormValidator.enableValidation();
+
+
+
+  
   
 
 

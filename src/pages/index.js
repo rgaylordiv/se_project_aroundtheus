@@ -118,20 +118,20 @@ popupEditForm.setEventListeners();
 const popupAddForm = new PopupWithForm('#add', handleProfileAddSubmit);
 popupAddForm.setEventListeners();
 
-const userInfo = new UserInfo('.profile__name', '.profile__bio');
+const userInfo = new UserInfo(profileName, profileBio);
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
 
 function handleProfileEditSumbit (userData) {
-    //evt.preventDefault();
     //const userData = userInfo.setUserInfo();
     //profileName.textContent = userData.name;
     //profileBio.textContent = userData.job;
+    console.log(userData);
     const name = userData.name;
-    const description = userData.job;
-    userInfo.setUserInfo({name, description});
+    const job = userData.job;
+    userInfo.setUserInfo(name, job);
     popupEditForm.close();
 }
 
@@ -167,6 +167,7 @@ function closePopup(modal) {
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
+
 editProfile.addEventListener("click", () => {
     const userData = userInfo.getUserInfo();
     profileEditName.value = userData.name;
@@ -177,7 +178,10 @@ editProfile.addEventListener("click", () => {
 /* ^^ Edit Form Events ^^ */
 
 // Form Elements
-profileEditFormElement.addEventListener("submit", handleProfileEditSumbit);
+profileEditFormElement.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    handleProfileEditSumbit(evt);
+});
 addFormElement.addEventListener("submit", handleProfileAddSubmit);
 // ^^
 

@@ -10,8 +10,8 @@ import { initialCards, config } from '../utils/constants.js';
 //
 
 //Form Elements
-const profileEditFormElement = document.querySelector('#edit-form');
-const addFormElement = document.querySelector('#add-form');
+const profileEditFormElement = document.forms['edit-form'];
+const addFormElement = document.forms['add-form'];
 //
 
 //Edit Form
@@ -74,10 +74,22 @@ const userInfo = new UserInfo(profileName, profileBio);
 //
 
 //Form Validator
-const editFormValidator = new FormValidator(config, profileEditFormElement);
-const addFormValidator = new FormValidator(config, addFormElement);
+const formValidators= {};
 
-editFormValidator.enableValidation();
+const enableValidation = (config) => {
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    formList.forEach((formElement) => {
+        const validator = new FormValidator(config, formElement);
+        const formName = formElement.getAttribute('id');
+        formValidators[formName] = validator;
+        validator.enableValidation();
+    });
+};
+
+enableValidation(config);
+
+//To toggle the 'create' button on each click of the add modal
+const addFormValidator = new FormValidator(config, addFormElement);
 addFormValidator.enableValidation();
 //
 
@@ -85,9 +97,9 @@ addFormValidator.enableValidation();
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function renderCard(data, wrapper) {
+function renderCard(data) {
     const cardElement = getCardElement(data);
-    wrapper.prepend(cardElement);
+    section.addItem(cardElement);
 }
 
 function getCardElement(cardData) {
@@ -111,15 +123,12 @@ function handleProfileEditSumbit (userData) {
     popupEditForm.close();
 }
 
-function handleProfileAddSubmit () {
-    //evt.preventDefault();
-    const name = cardTitleInput.value;
-    const link = cardImageInput.value;
+function handleProfileAddSubmit (formValue) {
+    const name = formValue.title;
+    const link = formValue.image;
+    console.log(`Name: ${name}, Link: ${link}`);
     renderCard({name, link}, cardList);
     popupAddForm.close();
-
-    cardTitleInput.value = '';
-    cardImageInput.value = '';
     addFormElement.reset();
 }
 

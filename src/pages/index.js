@@ -89,8 +89,7 @@ const enableValidation = (config) => {
 enableValidation(config);
 
 //To toggle the 'create' button on each click of the add modal
-const addFormValidator = new FormValidator(config, addFormElement);
-addFormValidator.enableValidation();
+const addFormValidator = formValidators['add-form'];
 //
 
 /* -------------------------------------------------------------------------- */

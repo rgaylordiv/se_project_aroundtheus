@@ -2,7 +2,7 @@
 
 ### Overview  
 
-# Hello! This project is simple looking at it from the outside in, but once you see the details of what is being asked, you realize just how daunting the task truely is. I was able to figure out aspects that I didn't before think I would be able to. It was nice having Figma to help find accurate sizing and such on the fly and I look forward to using it again. My main problems were: putting together the cards(more so the imaages and background to connect), the responsive design of a 320px screen from 1280px, and the media queries. I appreciate the challenge this served me and look forward to keep on learning no matter how many times I get humbled!
+# Hello! This project is simple looking at it from the outside in, but once you see the details of what is being asked, you realize just how daunting the task truely is. I was able to figure out aspects that I didn't before think I would be able to. It was nice having Figma to help find accurate sizing and such on the fly and I look forward to using it again. My main problems were: putting together the cards(more so the images and background to connect), the responsive design of a 320px screen from 1280px, and the media queries. I appreciate the challenge this served me and look forward to keep on learning no matter how many times I get humbled!
 
 ## Project Features
 

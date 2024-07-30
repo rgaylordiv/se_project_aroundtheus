@@ -14,6 +14,13 @@
 - Text/Screen Overflow
 - Modifiers
 - BEM organization
+- JavaScript
+- Arrays
+- Functions
+- Event Handlers
+- Event Listeners
+- Classes(refacturing)
+- Import/Export
 
 ### Images
 

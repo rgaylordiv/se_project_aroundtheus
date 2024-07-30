@@ -137,8 +137,9 @@
 }
 
 .modal__button_disabled {
-    background: url(../images/Submit\ Button\ Invalid.svg);
     cursor: not-allowed;
+    background-color: #fff;
+    color: grey;
 }
 
 .modal__button:hover {

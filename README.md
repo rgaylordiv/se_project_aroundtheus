@@ -21,6 +21,7 @@
 - Event Listeners
 - Classes(refacturing)
 - Import/Export
+- API
 
 ### Images
 

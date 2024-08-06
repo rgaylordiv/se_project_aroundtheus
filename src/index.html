@@ -14,6 +14,7 @@
             <main class="content">
                 <section  class='profile page__section'>
                     <img src="<%=require('/src/images/Avatar.png')%>" class="profile__image" alt="Profile Picture">
+                    <button type="button" class="profile__image-edit"></button>
                     <div class="profile__info">
                         <h1 class="profile__name">Jacques Cousteau</h1>
                             <button class="profile__edit-button" type="button"></button>
@@ -43,7 +44,7 @@
                         <input type="text" placeholder="Description" class="modal__form-input" name="bio" id="profile-bio-input" required minlength="2" maxlength="200">
                         <span class="modal__input-error" id="profile-bio-input-error"></span>
                     </label>
-                    <button class="modal__button" type="submit">Save</button>
+                    <button class="modal__button" type="submit" id="edit-post">Save</button>
                 </form>
             </div>
         </div>
@@ -71,10 +72,32 @@
                 <p class="modal__description"></p>
             </div>
         </div>
+        <div class="modal" id="profile">
+            <div class="modal__container">
+                <button aria-label="Close" class="modal__close" id="profileClose"></button>
+                <h3 class="modal__heading">Change profile picture</h3>
+                <form class="modal__form" id="profile-form" novalidate>
+                    <label class="modal__form-group">
+                        <input type="url" placeholder="Image URL" class="modal__form-input modal__input_type_url" name="avatar" id="profile-image-url-input" required>
+                        <span class="modal__input-error" id="profile-image-url-input-error"></span>
+                    </label>
+                    <button class="modal__button" type="submit" id="profile-button">Save</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal" id="delete">
+            <div class="modal__container">
+                <button aria-label="Close" class="modal__close" id="deleteClose"></button>
+                <h3 class="modal__heading">Are you sure?</h3>
+                <form class="modal__form" id="delete-form" novalidate>
+                    <button class="modal__button" type="submit" id="delete-button">Yes</button>
+                </form>
+            </div>
+        </div>
         <template id="card-template">
             <li class="card">
                 <img src="" class="card__image" alt="" id="card-image">
-                <button class="card__trash"></button>
+                <button class="card__trash" type="button"></button>
                 <div class="card__content">
                     <h2 class="card__title" id="card-title"></h2>
                     <button id="like-button" class="card__button" type="button"></button>

@@ -80,6 +80,10 @@
     line-height: 16.94px;
 }
 
+#delete-form{
+    padding-top: 38px;
+}
+
 .modal__form-input {
     border-width: 1px;
     border-top: none;

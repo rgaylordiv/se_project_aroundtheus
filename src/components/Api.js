@@ -76,9 +76,6 @@ export default class Api {
         return fetch(`${this._baseUrl}/cards/${cardID}/likes`, {
             method: 'PUT',
             headers: this._headers,
-            body: JSON.stringify({
-             isLiked: true
-            }),
          }).then(this._checkResponse);
     } //
 
@@ -86,9 +83,6 @@ export default class Api {
         return fetch(`${this._baseUrl}/cards/${cardID}/likes`, {
             method: 'DELETE',
             headers: this._headers,
-            body: JSON.stringify({
-             isLiked: false
-            }),
          }).then(this._checkResponse);
     } //
 }

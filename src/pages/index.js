@@ -2,6 +2,7 @@
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
+import Popup from '../components/Popup.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
@@ -42,11 +43,15 @@ const profileImageInput = document.querySelector('#profile-image-url-input');
 
 //List
 const cardList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector('#card-template');
+const card = document.querySelector('.card');
 //
 
 //Card
 const likeButton = document.querySelector('.card__button');
-const deleteButton = document.querySelector('.card__trash');
+const deleteButton = document.querySelectorAll('.card__trash');
+const deleteButtonSubmit = document.querySelector('#delete-button');
+const modalDelete = document.querySelector('#delete');
 //
 
 //Image Display
@@ -95,7 +100,7 @@ api
         console.error(err);
       });
 
-api
+/*api
     .getInitialCards()
     .then((res) => { //might need parameter of res, if so replace initialCards with res
         const section = new Section(
@@ -110,7 +115,20 @@ api
     .catch((err) => {
         console.error(err);
     });
-//
+*/
+
+api
+    .getInitialCards()
+    .then((cards) => {
+        cards.forEach(cardData => {
+            renderCard(cardData);
+        });
+    })
+    .catch(err => {
+        console.error(err);
+    });
+
+
 
 //PopupWithImage
 const popupWithImage = new PopupWithImage('#image');
@@ -132,8 +150,8 @@ const popupProfileImage = new PopupWithForm('#profile', handleProfileImageSubmit
 popupProfileImage.setEventListeners();
 //
 
-//PopupWithForm - Delete Button
-const popupDeleteButton = new PopupWithForm('#delete', handleDeleteButtonSubmit);
+//Popup - Delete Button
+const popupDeleteButton = new Popup('#delete'); //was creating with PopupWithForm but was giving it multiple event listeners for the submission
 popupDeleteButton.setEventListeners();
 //
 
@@ -243,7 +261,7 @@ function handleProfileAddSubmit (formValue) {
     api.createCard({name: formValue.title, link: formValue.image})
         .then((data) => {
             renderCard(data);
-            addCardLoading.addPost();
+            addCardLoading.addPost(); //The button for this one is create so I made it turn to creating...
             popupAddForm.close();
             addFormElement.reset();
         })
@@ -309,11 +327,4 @@ profileImageEdit.addEventListener('click', () => {
     profileFormValidator.toggleButtonState();
 })
 //
-
-
-
-
-  
-  
-
 

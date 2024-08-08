@@ -1,3 +1,5 @@
+import Popup from "./Popup.js";
+
 export default class Card {
     constructor(data, cardSelector, handleImageClick, handleDeleteButton, handleCardLike, handleCardDislike) {
         this._name = data.name;
@@ -16,14 +18,18 @@ export default class Card {
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => {
             if(this._isLiked){
-                this._handleCardLike(this);
-            } else {
                 this._handelCardDislike(this);
+            } else {
+                this._handleCardLike(this);
             }
         });
 
         this._deleteButton.addEventListener('click', () => {
+            console.log('trash clicked');
             this._modalDelete.classList.add('modal_opened');
+            const messageElement = document.querySelector('#delete-button');
+            messageElement.textContent = 'Yes';
+            document.addEventListener('keydown', this.escPress.bind(this));
             this._deleteSubmit.addEventListener('submit', this._deleteSubmitHandler);
         })
 
@@ -35,31 +41,23 @@ export default class Card {
                 src: this._link
             });
         })
-
-        this._profileImageButton.addEventListener('click', () => this._handleProfileImageClick());
     }
 
-    _handleLikeClick (){
-        this._likeButton.classList.toggle('active');
+    escPress(evt) {
+        if (evt.key === 'Escape' && this._modalDelete) {
+            this._modalDelete.classList.remove('modal_opened');
+        }
     }
 
-    /*_handleDeleteClick() {
-        this._modalDelete.classList.add('modal_opened');
-        this._modalDelete.addEventListener('submit', (evt) => {
-            this._handleDeleteSubmit(evt, this._id); // Pass card ID
-        });
-    }*/
-
-     _handleDeleteSubmit(evt) {
+    _handleDeleteSubmit(evt) {
+        console.log('this is working');
         evt.preventDefault(); // Prevent default delete submission
+        const messageElement = document.querySelector('#delete-button');
+        messageElement.textContent = 'Saving...';
+        setTimeout(() => this._modal.classList.remove('modal_opened'), 6000);
         this._handleDeleteButton(this);
         this._modalDelete.classList.remove('modal_opened'); // Close the modal
         this._deleteSubmit.removeEventListener('submit', this._deleteSubmitHandler);
-    }
-
-    _handleProfileImageClick(){
-        this._modalImage.classList.add('modal_opened');
-        this._modalImageSubmit.addEventListener('submit', this._imageSubmitHandler);
     }
 
     _handleImageSubmit(){
@@ -74,15 +72,15 @@ export default class Card {
     }
 
     cardIsLiked(isLiked) {
-        this.isLiked = isLiked;
+        this._isLiked = isLiked;
         this.showLikes();
     }
 
     showLikes(){
-        if(this.isLiked) {
-            this._likeButton.classList.toggle('active');
+        if(this._isLiked) {
+            this._likeButton.classList.add('active');
         } else {
-            this._likeButton.classList.toggle('active');
+            this._likeButton.classList.remove('active');
         }
     }
 
@@ -99,6 +97,7 @@ export default class Card {
     getView() {
         this._element = this._getTemplate();
         
+        this._modal = document.querySelector('.modal');
         this._profileImage = document.querySelector('.profile__image');
         this._profileImageButton = document.querySelector('.profile__image-edit');
         this._likeButton = this._element.querySelector('.card__button');
@@ -114,6 +113,7 @@ export default class Card {
         this._modalImageSubmit = this._modalImage.querySelector('#profile-button');
 
         this._setEventListeners();
+        this.showLikes();
 
         return this._element;
     }

@@ -2,18 +2,18 @@
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
-import Popup from '../components/Popup.js';
+import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import '../pages/index.css';
 import { initialCards, config } from '../utils/constants.js';
 import Api from '../components/Api.js';
-import LoadingMessage from '../components/LoadingMessage.js'; 
 //
 
 //Modal
 const modal = document.querySelector('.modal');
+//
 
 //Form Elements
 const profileEditFormElement = document.forms['edit-form'];
@@ -49,7 +49,7 @@ const card = document.querySelector('.card');
 
 //Card
 const likeButton = document.querySelector('.card__button');
-const deleteButton = document.querySelectorAll('.card__trash');
+//const deleteButton = cardElement.querySelectorAll('.card__trash');
 const deleteButtonSubmit = document.querySelector('#delete-button');
 const modalDelete = document.querySelector('#delete');
 //
@@ -76,12 +76,16 @@ const api = new Api({
 
 //Section
 const section = new Section(
-    {items: initialCards, renderer: (cardData) => {
+    {/*items: initialCards,*/renderer: (cardData) => {
         const cardElement = getCardElement(cardData);
         section.addItem(cardElement)
      }},
     '.cards__list'
 );
+//
+
+//UserInfo
+const userInfo = new UserInfo(profileName, profileBio, profileImage);
 //
 
 api
@@ -114,15 +118,16 @@ api
     })
     .catch((err) => {
         console.error(err);
-    });
-*/
+    });*/
 
 api
     .getInitialCards()
     .then((cards) => {
-        cards.forEach(cardData => {
-            renderCard(cardData);
-        });
+        /*cards.forEach(cardData => {
+            section.renderItems(cardData); //use renderItems(section)
+        });*/
+        section._items = cards;
+        section.renderItems();
     })
     .catch(err => {
         console.error(err);
@@ -151,18 +156,8 @@ popupProfileImage.setEventListeners();
 //
 
 //Popup - Delete Button
-const popupDeleteButton = new Popup('#delete'); //was creating with PopupWithForm but was giving it multiple event listeners for the submission
+const popupDeleteButton = new PopupWithConfirmation('#delete', handleDeleteButtonSubmit); //create PopupWithConfirmation for managing this modal
 popupDeleteButton.setEventListeners();
-//
-
-//UserInfo
-const userInfo = new UserInfo(profileName, profileBio, profileImage);
-//
-
-//Loading Messages
-const editPostLoading = new LoadingMessage('#edit-post');
-const addCardLoading = new LoadingMessage('#new-post');
-const avatarLoading = new LoadingMessage('#profile-button');
 //
 
 //Form Validator
@@ -198,7 +193,7 @@ function renderCard(data) {
 
 function getCardElement(cardData) {
     console.log(cardData);
-    const card = new Card(cardData, '#card-template', handleImageClick, handleDeleteButtonSubmit, handleCardLike, handleCardDislike);
+    const card = new Card(cardData, '#card-template', handleImageClick, handleCardDelete, handleCardLike, handleCardDislike);
     return card.getView();
 }
 
@@ -237,56 +232,82 @@ function handleCardDislike(card) {
         });
 }
 
+function handleSubmit(request, popupInstance, loadingText = 'Saving...'){
+    popupInstance.renderLoading(true, loadingText);
+    request()
+        .then(() => {
+            popupInstance.close();
+        })
+        .catch(console.error)
+        .finally(() => {
+            popupInstance.renderLoading(false);
+        });
+}
+
 function handleProfileEditSumbit (userData) {
     const name = userData.name;
     const job = userData.bio;
     console.log(name);
     console.log(job);
-    editPostLoading.editPost();
-    api.updateProfileInfo(name, job)
-        .then(() => {
+    function makeRequest(){
+        return api.updateProfileInfo(name, job)
+        /*.then(() => {
             return api.getUserInfo();
-        })
+        })*/
         .then(() => {
             userInfo.setUserInfo(name, job);
             popupEditForm.close();
+            profileEditFormElement.reset();
         })
         .catch((err) => {
             showErrorMessage();
             console.error(err);
         });
+    }
+    handleSubmit(makeRequest, popupEditForm);
 }
 
 function handleProfileAddSubmit (formValue) {
-    api.createCard({name: formValue.title, link: formValue.image})
+    function makeRequest() {
+        return api.createCard({name: formValue.title, link: formValue.image})
         .then((data) => {
-            renderCard(data);
-            addCardLoading.addPost(); //The button for this one is create so I made it turn to creating...
+            renderCard(data); //renderItems needs to be here
             popupAddForm.close();
             addFormElement.reset();
         })
         .catch((err) => {
             showErrorMessage();
             console.error(err);
-        })
+        });
+    }
+    handleSubmit(makeRequest, popupAddForm);
 }
 
 function handleProfileImageSubmit(userData) {
-    api.updateAvatar(userData.avatar)
+    function makeRequest(){
+        return api.updateAvatar(userData.avatar)
         .then(() => {
-            avatarLoading.profileImage();
             userInfo.setUserPicture(userData.avatar);
             popupProfileImage.close();
+            profileImageFormElement.reset();
         })
         .catch((err) => {
             showErrorMessage();
             console.error(err);
         })
+    }
+    handleSubmit(makeRequest, popupProfileImage);
+}
+
+function handleCardDelete(data){
+    //handleDeleteButtonSubmit(data);
+    popupDeleteButton.open();
+    popupDeleteButton.setSubmitAction(() => handleDeleteButtonSubmit(data));
 }
 
 function handleDeleteButtonSubmit(card) {
     console.log('Card ID for deletion:', card._id); // Debug log
-    api.deleteCard(card._id)
+        api.deleteCard(card._id)
         .then(() => {
             card.removeCard(); // Remove card from DOM
             popupDeleteButton.close(); // Close the delete popup
@@ -294,8 +315,7 @@ function handleDeleteButtonSubmit(card) {
         .catch((err) => {
             console.error(err);
         });
-
-}
+    }
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -303,7 +323,7 @@ function handleDeleteButtonSubmit(card) {
 
 //Edit Form Events
 editProfile.addEventListener("click", () => {
-    editPostLoading.resetMessageEdit();
+ //return the default button only in blocks finally
     const userData = userInfo.getUserInfo();
     profileEditName.value = userData.name;
     profileEditBio.value = userData.job;
@@ -314,7 +334,6 @@ editProfile.addEventListener("click", () => {
 
 //Add Form Events
 addButton.addEventListener("click", function() {
-    addCardLoading.resetMessageAdd();
     popupAddForm.open();
     addFormValidator.toggleButtonState();
 });
@@ -322,9 +341,7 @@ addButton.addEventListener("click", function() {
 
 //Profile Image Form
 profileImageEdit.addEventListener('click', () => {
-    avatarLoading.resetMessageProfile();
     popupProfileImage.open();
     profileFormValidator.toggleButtonState();
 })
 //
-

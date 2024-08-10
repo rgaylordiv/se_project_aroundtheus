@@ -12,7 +12,7 @@ export default class PopupWithForm extends Popup{
         this._profileImageButton = document.querySelector('.profile__image-edit');
         this._modalImage = document.querySelector('#profile');
         this._modalImageSubmit = this._modalImage.querySelector('#profile-button');
-        this._imageSubmitHandler = this._handleImageSubmit.bind(this);
+        //this._imageSubmitHandler = this._handleImageSubmit.bind(this);
     }
 
     _getInputValues(){
@@ -41,11 +41,11 @@ export default class PopupWithForm extends Popup{
         }
     }
 
-    _handleImageSubmit(){ //delete this
-        evt.preventDefault();
+    /*_handleImageSubmit(){ //delete this
+        //evt.preventDefault();
         this._modalImage.classList.remove('modal_opened');
         this._modalImageSubmit.removeEventListener('submit', this._imageSubmitHandler);
-    }
+    }*/
 
     setEventListeners(){
         this._popupForm.addEventListener('submit', (evt) => {

@@ -12,7 +12,8 @@ import Api from '../components/Api.js';
 //
 
 //Modal
-const modal = document.querySelector('.modal');
+const modal = document.querySelector('.modal'); //
+const profile = document.querySelector('#profile'); //
 //
 
 //Form Elements
@@ -31,33 +32,33 @@ const profileEditBio = document.querySelector("#profile-bio-input");
 
 //Add Form
 const addButton = document.querySelector(".profile__add-button");
-const cardTitleInput = addFormElement.querySelector('.modal__input_type_title');
-const cardImageInput = addFormElement.querySelector('.modal__input_type_url');
+const cardTitleInput = addFormElement.querySelector('.modal__input_type_title'); //
+const cardImageInput = addFormElement.querySelector('.modal__input_type_url'); //
 //
 
 //Profile Image Form
 const profileImageEdit = document.querySelector('.profile__image-edit');
 const profileImage = document.querySelector('.profile__image');
-const profileImageInput = document.querySelector('#profile-image-url-input');
+const profileImageInput = document.querySelector('#profile-image-url-input'); //
 //
 
 //List
-const cardList = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector('#card-template');
-const card = document.querySelector('.card');
+const cardList = document.querySelector(".cards__list"); //
+const cardTemplate = document.querySelector('#card-template'); //
+const card = document.querySelector('.card'); //
 //
 
 //Card
-const likeButton = document.querySelector('.card__button');
-//const deleteButton = cardElement.querySelectorAll('.card__trash');
-const deleteButtonSubmit = document.querySelector('#delete-button');
-const modalDelete = document.querySelector('#delete');
+const likeButton = document.querySelector('.card__button'); //
+//const deleteButton = cardElement.querySelectorAll('.card__trash'); //
+const deleteButtonSubmit = document.querySelector('#delete-button'); //
+const modalDelete = document.querySelector('#delete'); //
 //
 
 //Image Display
 const modalImage = document.querySelector('#image');
-const previewImage = modalImage.querySelector('.modal__image');
-const modalTitle = document.querySelector('.modal__description');
+const previewImage = modalImage.querySelector('.modal__image'); //
+const modalTitle = document.querySelector('.modal__description'); //
 //
 
 /* -------------------------------------------------------------------------- */
@@ -126,7 +127,7 @@ api
         /*cards.forEach(cardData => {
             section.renderItems(cardData); //use renderItems(section)
         });*/
-        section._items = cards;
+        section.items = cards;
         section.renderItems();
     })
     .catch(err => {
@@ -197,7 +198,7 @@ function getCardElement(cardData) {
     return card.getView();
 }
 
-function showErrorMessage(err){
+function showErrorMessage(err){ //
     const messageElement = document.querySelector('.modal__button');
     messageElement.textContent = `Error: ${err}`;
 }
@@ -238,7 +239,7 @@ function handleSubmit(request, popupInstance, loadingText = 'Saving...'){
         .then(() => {
             popupInstance.close();
         })
-        .catch(console.error)
+        .catch(console.error) //can add showErrorMessage() here if wanted
         .finally(() => {
             popupInstance.renderLoading(false);
         });
@@ -256,13 +257,13 @@ function handleProfileEditSumbit (userData) {
         })*/
         .then(() => {
             userInfo.setUserInfo(name, job);
-            popupEditForm.close();
+            //popupEditForm.close(); not needed because it is done with handleSubmit
             profileEditFormElement.reset();
         })
-        .catch((err) => {
+        /*.catch((err) => {
             showErrorMessage();
             console.error(err);
-        });
+        })*/
     }
     handleSubmit(makeRequest, popupEditForm);
 }
@@ -271,14 +272,14 @@ function handleProfileAddSubmit (formValue) {
     function makeRequest() {
         return api.createCard({name: formValue.title, link: formValue.image})
         .then((data) => {
-            renderCard(data); //renderItems needs to be here
+            renderCard(data);
             popupAddForm.close();
             addFormElement.reset();
-        })
-        .catch((err) => {
+        });
+        /*.catch((err) => {
             showErrorMessage();
             console.error(err);
-        });
+        })*/
     }
     handleSubmit(makeRequest, popupAddForm);
 }
@@ -291,10 +292,10 @@ function handleProfileImageSubmit(userData) {
             popupProfileImage.close();
             profileImageFormElement.reset();
         })
-        .catch((err) => {
+        /*.catch((err) => {
             showErrorMessage();
             console.error(err);
-        })
+        })*/
     }
     handleSubmit(makeRequest, popupProfileImage);
 }

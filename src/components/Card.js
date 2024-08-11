@@ -81,9 +81,6 @@ export default class Card {
         this._cardImage.setAttribute('src', this._link)
         this._cardImage.alt = this._name;
         this._cardTitle = this._element.querySelector(".card__title").textContent = this._name;
-        this._modalDelete = document.querySelector('#delete');
-        this._deleteSubmit = this._modalDelete.querySelector('#delete-button');
-        this._deleteSubmit = this._modalDelete ? this._modalDelete.querySelector('form') : null; // Ensure it's a form
 
         this._setEventListeners();
         this.showLikes();

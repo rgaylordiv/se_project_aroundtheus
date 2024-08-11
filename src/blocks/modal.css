@@ -80,6 +80,10 @@
     line-height: 16.94px;
 }
 
+#delete-form{
+    padding-top: 38px;
+}
+
 .modal__form-input {
     border-width: 1px;
     border-top: none;
@@ -148,7 +152,7 @@
 
 .modal__form-group{
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /*was 40px*/
 }
 
 .modal__image {
@@ -195,6 +199,15 @@
     #add {
         padding-left: 19px;
         padding-right: 19px;
+    }
+
+    #delete{
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    #delete-button{
+        margin: 0;
     }
 
     .modal__container {

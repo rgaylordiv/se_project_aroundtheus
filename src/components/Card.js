@@ -1,16 +1,35 @@
-
 export default class Card {
-    constructor(data, cardSelector, handleImageClick) {
+    constructor(data, cardSelector, handleImageClick, handleDeleteButton, handleCardLike, handleCardDislike) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
         this._handleImageClick = handleImageClick;
+        this._handleDeleteButton = handleDeleteButton;
+        this._handleCardLike = handleCardLike;
+        this._handelCardDislike = handleCardDislike;
+        //this._deleteSubmitHandler = this._handleDeleteSubmit.bind(this);// Bind here
+        //this._imageSubmitHandler = this._handleImageSubmit.bind(this);
+        this._id = data._id;
+        this._isLiked = data.isLiked;
     }
 
     _setEventListeners() {
-        this._likeButton.addEventListener('click', () => this._handleLikeClick());
+        this._likeButton.addEventListener('click', () => {
+            if(this._isLiked){
+                this._handelCardDislike(this);
+            } else {
+                this._handleCardLike(this);
+            }
+        });
 
-        this._deleteButton.addEventListener('click', () => this._handleDeleteClick());
+        this._deleteButton.addEventListener('click', () => {
+            console.log('trash clicked');
+            //this._modalDelete.classList.add('modal_opened');
+            this._handleDeleteButton(this);
+            //document.addEventListener('keydown', this.escPress.bind(this));
+            //this._deleteSubmit.addEventListener('submit', this._deleteSubmitHandler);
+        })
+
 
         this._cardImage.addEventListener('click', () => {
             this._handleImageClick({
@@ -21,13 +40,25 @@ export default class Card {
         })
     }
 
-    _handleLikeClick (){
-        this._likeButton.classList.toggle('active');
-    }
+    //modals need to be created using Popup and the submit handler
+    //should be added inside the class
 
-    _handleDeleteClick () {
+    removeCard(){
         this._element.remove();
         this._element = null;
+    }
+
+    cardIsLiked(isLiked) {
+        this._isLiked = isLiked;
+        this.showLikes();
+    }
+
+    showLikes(){
+        if(this._isLiked) {
+            this._likeButton.classList.add('active');
+        } else {
+            this._likeButton.classList.remove('active');
+        }
     }
 
     _getTemplate() {
@@ -43,6 +74,7 @@ export default class Card {
     getView() {
         this._element = this._getTemplate();
         
+        this._modal = document.querySelector('.modal');
         this._likeButton = this._element.querySelector('.card__button');
         this._deleteButton = this._element.querySelector('.card__trash');
         this._cardImage = this._element.querySelector('.card__image');
@@ -51,6 +83,7 @@ export default class Card {
         this._cardTitle = this._element.querySelector(".card__title").textContent = this._name;
 
         this._setEventListeners();
+        this.showLikes();
 
         return this._element;
     }
